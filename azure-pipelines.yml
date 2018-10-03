@@ -14,5 +14,11 @@ steps:
 
 - script: |
     yarn install --frozen-lockfile
+    displayName: 'yarn install'
+  
+  - script: |
+    ./scripts/circleci/test_entry_point.sh
     yarn test
-  displayName: 'yarn install and build'
+    displayName: 'yarn test'
+  
+  
