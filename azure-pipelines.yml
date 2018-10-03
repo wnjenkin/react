@@ -16,8 +16,8 @@ steps:
     yarn install --frozen-lockfile
     displayName: 'yarn install'
     
-- task: ShellScript
-   inputs:
+- task: ShellScript@2
+  inputs:
     scriptPath: test_entry_point.sh
   
  - script: |
