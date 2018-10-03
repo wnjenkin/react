@@ -14,14 +14,14 @@ steps:
 
 - script: |
     yarn install --frozen-lockfile
-    displayName: 'yarn install'
+  displayName: 'yarn install'
     
 - task: ShellScript@2
   inputs:
-    scriptPath: /scripts/circleci/test_entry_point.sh
+    scriptPath: ./scripts/circleci/test_entry_point.sh
   
- - script: |
+- script: |
     yarn test
-     displayName: 'yarn test'
+  displayName: 'yarn test'
   
   
