@@ -18,7 +18,7 @@ steps:
     
 - task: ShellScript
    inputs:
-    scriptPath: ./scripts/circleci/test_entry_point.sh
+    scriptPath: test_entry_point.sh
   
  - script: |
     yarn test
