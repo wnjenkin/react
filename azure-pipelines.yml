@@ -19,6 +19,7 @@ steps:
 - task: ShellScript@2
   inputs:
     scriptPath: $(build.sourcesdirectory)/scripts/circleci/test_entry_point.sh
+    disableAutoCwd: true
     cwd: '$(build.sourcesdirectory)'
   
 - script: |
