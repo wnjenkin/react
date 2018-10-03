@@ -17,7 +17,7 @@ steps:
     displayName: 'yarn install'
   
   - script: |
-    ./scripts/circleci/test_entry_point.sh
+  #!/bin/bash -eo pipefail ./scripts/circleci/test_entry_point.sh
     yarn test
     displayName: 'yarn test'
   
