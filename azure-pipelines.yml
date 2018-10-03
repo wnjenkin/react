@@ -14,5 +14,5 @@ steps:
 
 - script: |
     yarn install --frozen-lockfile
-    yarn run
+    yarn test
   displayName: 'yarn install and build'
