@@ -1,11 +1,11 @@
 #!/bin/bash
 
-set -e
+#set -e
 
-yarn test --coverage --maxWorkers=2
-if [ -z "$CIRCLE_PULL_REQUEST" ]; then
-  ./node_modules/.bin/coveralls < ./coverage/lcov.info
-fi
+#yarn test --coverage --maxWorkers=2
+#if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+ # ./node_modules/.bin/coveralls < ./coverage/lcov.info
+#fi
 
 # TODO: should we also track prod code coverage somehow?
 # yarn test-prod --coverage
