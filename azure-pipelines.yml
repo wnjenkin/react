@@ -19,8 +19,8 @@ steps:
 - task: ShellScript@2
   inputs:
     scriptPath: $(System.DefaultWorkingDirectory)/scripts/circleci/test_entry_point.sh
-    disableAutoCwd: true
-    cwd: '$(System.DefaultWorkingDirectory)'
+    #disableAutoCwd: true
+    #cwd: '$(System.DefaultWorkingDirectory)'
   
 - script: |
     yarn test
