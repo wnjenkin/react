@@ -8,8 +8,9 @@ ls
 ./scripts/circleci/set_up_github_keys.sh
 
 COMMANDS_TO_RUN=()
+CIRCLE_NODE_TOTAL = 1
 
-if [ $((0 % 1)) -eq "$CIRCLE_NODE_INDEX" ]; then
+if [ $((0 % CIRCLE_NODE_TOTAL)) -eq "$CIRCLE_NODE_INDEX" ]; then
   COMMANDS_TO_RUN+=('node ./scripts/prettier/index')
   COMMANDS_TO_RUN+=('node ./scripts/tasks/flow-ci')
   COMMANDS_TO_RUN+=('node ./scripts/tasks/eslint')
@@ -20,14 +21,14 @@ if [ $((0 % 1)) -eq "$CIRCLE_NODE_INDEX" ]; then
   COMMANDS_TO_RUN+=('./scripts/circleci/track_stats.sh')
 fi
 
-if [ $((1 % 1)) -eq "$CIRCLE_NODE_INDEX" ]; then
+if [ $((1 % CIRCLE_NODE_TOTAL)) -eq "$CIRCLE_NODE_INDEX" ]; then
   COMMANDS_TO_RUN+=('yarn test-prod --maxWorkers=2')
   # React Fire:
   COMMANDS_TO_RUN+=('yarn test-fire --maxWorkers=2')
   COMMANDS_TO_RUN+=('yarn test-fire-prod --maxWorkers=2')
 fi
 
-if [ $((2 % 1)) -eq "$CIRCLE_NODE_INDEX" ]; then
+if [ $((2 % CIRCLE_NODE_TOTAL)) -eq "$CIRCLE_NODE_INDEX" ]; then
   COMMANDS_TO_RUN+=('./scripts/circleci/build.sh')
   COMMANDS_TO_RUN+=('yarn test-build --maxWorkers=2')
   COMMANDS_TO_RUN+=('yarn test-build-prod --maxWorkers=2')
@@ -35,7 +36,7 @@ if [ $((2 % 1)) -eq "$CIRCLE_NODE_INDEX" ]; then
   COMMANDS_TO_RUN+=('./scripts/circleci/upload_build.sh')
 fi
 
-if [ $((3 % 1)) -eq "$CIRCLE_NODE_INDEX" ]; then
+if [ $((3 % CIRCLE_NODE_TOTAL)) -eq "$CIRCLE_NODE_INDEX" ]; then
  COMMANDS_TO_RUN+=('./scripts/circleci/test_coverage.sh')
 fi
 
