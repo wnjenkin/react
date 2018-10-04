@@ -36,7 +36,7 @@ if [ $((2 % TOTAL)) -eq "$NODE_INDEX" ]; then
 fi
 
 if [ $((3 % TOTAL)) -eq "$NODE_INDEX" ]; then
- #COMMANDS_TO_RUN+=('./scripts/circleci/test_coverage.sh')
+ COMMANDS_TO_RUN+=('./scripts/circleci/test_coverage.sh')
 fi
 
 RETURN_CODES=()
