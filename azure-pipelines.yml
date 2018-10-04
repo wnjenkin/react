@@ -16,7 +16,7 @@ steps:
     yarn install --frozen-lockfile
   displayName: 'yarn install'
     
-- task: ShellScript@2
+- task: ShellScript@0
   inputs:
     scriptPath: $(Build.SourcesDirectory)/scripts/circleci/test_entry_point.sh
     disableAutoCwd: true
