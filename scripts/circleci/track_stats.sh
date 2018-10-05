@@ -2,8 +2,6 @@
 
 set -e
 
-set -x
-
 ALL_FILES=$(find packages -name '*.js' | grep -v umd/ | grep -v __tests__ | grep -v __mocks__)
 COUNT_ALL_FILES=$(echo "$ALL_FILES" | wc -l)
 COUNT_WITH_FLOW=$(grep '@flow' $ALL_FILES | perl -pe 's/:.+//' | wc -l)
