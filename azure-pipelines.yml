@@ -21,3 +21,10 @@ steps:
     scriptPath: $(Build.SourcesDirectory)/scripts/circleci/test_entry_point.sh
     disableAutoCwd: true
     cwd: '$(Build.SourcesDirectory)'
+    
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/TEST-RESULTS.xml'
+    testRunTitle: 'Test results for Facebook Reat'
+    
+- task: PublishBuildArtifacts@1
