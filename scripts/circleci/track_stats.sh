@@ -1,6 +1,7 @@
-!/bin/bash
+#!/bin/bash
 
 set -e
+set -x
 
 ALL_FILES=$(find packages -name '*.js' | grep -v umd/ | grep -v __tests__ | grep -v __mocks__)
 echo 1
@@ -9,3 +10,4 @@ echo 2
 COUNT_WITH_FLOW=$(grep '@flow' $ALL_FILES | perl -pe 's/:.+//' | wc -l)
 echo 3
 node scripts/facts-tracker/index.js "flow-files" "$COUNT_WITH_FLOW/$COUNT_ALL_FILES"
+echo 4
