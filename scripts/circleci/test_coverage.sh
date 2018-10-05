@@ -1,9 +1,10 @@
 #!/bin/bash
 
 set -e
+PULL_REQUEST="https://github.com/wnjenkin/react/pull/6"
 
 yarn test --coverage --maxWorkers=2
-if [ -z "$CIRCLE_PULL_REQUEST" ]; then
+if [ -z "$PULL_REQUEST" ]; then
   ./node_modules/.bin/coveralls < ./coverage/lcov.info
 fi
 
