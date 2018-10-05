@@ -22,4 +22,10 @@ steps:
     disableAutoCwd: true
     cwd: '$(Build.SourcesDirectory)'
     
+- task: PublishTestResults@2	
+  inputs:	
+    testResultsFiles: '**/TEST-RESULTS.xml'	
+    testRunTitle: 'Test results for Facebook React'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    
 
